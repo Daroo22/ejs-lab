@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+  <%- include('./partials/nav') %>
+  <h1>Full Menu</h1>
+
+  <% const mains = restaurant.menu.filter(item => item.category === 'mains'); %>
+  <% const desserts = restaurant.menu.filter(item => item.category === 'desserts'); %>
+  <% const sides = restaurant.menu.filter(item => item.category === 'sides'); %>
+
+  <% if (mains.length > 0) { %>
+    <h2>Mains</h2>
+    <ul>
+      <% mains.forEach(function(item) { %>
+        <li>
+          <h3><%= item.name %> $<%= item.price %></h3>
+          <p>Rating: <%= item.rating %> stars</p>
+          <p>Details: <%= item.details %></p>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <% if (desserts.length > 0) { %>
+    <h2>Desserts</h2>
+    <ul>
+      <% desserts.forEach(function(item) { %>
+        <li>
+          <h3><%= item.name %> $<%= item.price %></h3>
+          <p>Rating: <%= item.rating %> stars</p>
+          <p>Details: <%= item.details %></p>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <% if (sides.length > 0) { %>
+    <h2>Sides</h2>
+    <ul>
+      <% sides.forEach(function(item) { %>
+        <li>
+          <h3><%= item.name %> $<%= item.price %></h3>
+          <p>Rating: <%= item.rating %> stars</p>
+          <p>Details: <%= item.details %></p>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+</body>
+</html>
